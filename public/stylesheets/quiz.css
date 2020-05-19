@@ -1,0 +1,438 @@
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: rgb(19, 23, 39);
+  color: white;
+    font-family: helvetica;
+}
+
+#barra{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+background-color: rgba(255, 255, 255, 0.05);
+}
+
+.boton h3:hover{
+  color: rgb(235, 99, 107);
+  cursor: pointer;
+}
+
+.boton {
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.boton a{
+  text-decoration: none;
+  color: white;
+}
+
+.navegador a:hover{
+  color: rgb(235, 99, 107);
+}
+
+ul li img{
+  width: 30%;
+}
+
+.navegador {
+list-style-type: none;
+}
+
+.navegador li {
+  display: inline;
+  padding: inherit;
+  font-weight: 500;
+}
+
+.navegador li a{
+  color: white;
+  text-decoration: none;
+}
+.total{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 4%;
+  margin-bottom: 4%;
+}
+
+.display{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.contenedor{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.detalle h2{
+  text-transform: uppercase;
+  font-size: 6vw;
+  margin-top: 0;
+  margin-bottom: 1%;
+}
+
+.detalle h3{
+  font-size: 3vw;
+  margin-top: 0;
+  margin-bottom: 4%;
+  font-weight: 200;
+}
+
+.detalle h4{
+  font-size: 2vw;
+  margin-top: 0;
+  margin-left: 2%;
+  margin-bottom: 0;
+}
+
+.detalle h4 ion-icon{
+  color: gold;
+}
+
+.detalle h6{
+    font-size: 2vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.detalle{
+  width: 60%;
+
+}
+
+.imagen{
+  width: 30%;
+}
+
+.imagen img{
+  width: 100%;
+}
+
+div.name{
+  padding-right: 10px;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none
+}
+.footer li.nombre {
+  padding: inherit;
+}
+
+.recon{
+  font-size: 1.7vw;
+  margin-left: 4%;
+  margin-bottom: 4%;
+}
+
+h2.recon:hover {
+  color: rgb(235, 99, 107);
+  cursor: pointer;
+}
+
+div.rr1 {
+  display: none;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+
+.recomendaciones {
+  margin-left: 2%;
+  width: 15%;
+}
+.recomendaciones img {
+  width: 100%;
+}
+
+
+.punt{
+  position: relative;
+  width: 16%;
+}
+
+.punt img{
+  width: 100%;
+}
+
+.punt h5{
+  width:100%;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  position: absolute;
+  margin: 0;
+  padding: 12%;
+  padding-top: 20%;
+  /* top: 65%; */
+  bottom: 0;
+  /* left: 7%; */
+  text-transform: uppercase;
+  hyphens: auto;
+}
+
+.punt h6{
+  width:100%;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: 10%;
+  padding-left: 75%;
+  background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+.punt h6 ion-icon{
+  color: gold;
+}
+
+form{
+  display: inline;
+}
+form .white{
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 0px;
+  height: 25px;
+}
+
+.lupita{
+  position: relative;
+  width: 20px;
+  left: -26px;
+  bottom: -7px;
+}
+.lupa{
+  background-image: url();
+  position: relative;
+  left: -55px;
+  display: none;
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 2%;
+  justify-content: flex-end;
+}
+
+.imag img{
+  width: 100%;
+}
+
+.imag{
+  width: 80px;
+  height: 80px;
+  padding-right:10px;
+}
+
+h6 a{
+  text-decoration:none;
+  color: white;
+}
+
+h6 a:hover{
+  color:rgb(235, 99, 107)
+}
+
+.trailer{
+  margin-left: 45%;
+}
+
+.trailer:hover{
+ cursor: pointer;
+ color: rgb(235, 99, 107);
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  margin: 0 auto;
+  z-index: 100;
+  /*background-color: rgba(0, 0, 0, 0.5);*/
+  width: 100%;
+  height: 100%;
+}
+
+.video{
+  position: relative;
+  top: 100px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255);
+  margin: auto;
+  width: 233px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  animation-name: modal;
+  animation-duration: 2s;
+  margin-bottom: 30%;
+
+}
+
+.header-modal{
+  justify-content: space-between;
+  background-color: rgb(235, 99, 107);
+}
+
+.header-modal ion-icon{
+  color: white;
+  padding: 4px;
+}
+
+.header-modal h3{
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.header-modal ion-icon:hover{
+  cursor: pointer;
+  color: black;
+}
+
+@keyframes modal {
+  from{opacity: 0}
+  to{opacity: 1}
+}
+
+.contenedor{
+  position: relative;
+  z-index: 0
+}
+@media (max-width: 450px){
+
+  .punt{
+    position: relative;
+    width: 47%;
+    }
+
+  .imagen{
+    width: 100%;
+    margin-bottom: 10%;
+  }
+
+  .detalle{
+    width: 100%;
+  }
+  .detalle h2{
+    text-transform: uppercase;
+    font-size: 10vw;
+    margin-top: 0;
+    margin-bottom: 1%;
+  }
+
+  .detalle h3{
+    font-size: 8vw;
+    margin-top: 0;
+    margin-bottom: 4%;
+    font-weight: 200;
+  }
+
+  .detalle h4{
+    font-size: 7vw;
+    margin-top: 6%;
+    margin-left: 2%;
+    margin-bottom: 0;
+  }
+
+  .detalle h4 ion-icon{
+    color: gold;
+  }
+
+  .detalle h6{
+      font-size: 5vw;
+      margin-top: 2%;
+      margin-bottom: 2%;
+  }
+
+  .navegador li{
+  width: 100%;
+  }
+
+  ul.navegador{
+    width: 100%;
+    padding-left: 0;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    margin-left: 20px;;
+    margin-right: 45%;
+    padding: 10px;
+    display: block;
+  }
+  ul.navegador{
+  margin-bottom: 0;
+
+  }
+
+}
+
+@media (min-width: 451px) and (max-width: 600px){
+  ul.navegador{
+    width: 100%;
+    padding-left: 0;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    margin-left: 20px;;
+    margin-right: 45%;
+    padding: 10px;
+    display: block;
+
+  }
+
+  ul li img{
+    width: 15%;
+  }
+
+  ul.navegador{
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 750px){
+  ul.navegador{
+    width: 100%;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    padding-left: 15px;
+  }
+
+  ul li a{
+    font-size: 14px;
+  }
+
+ul li img{
+  width: 12%;
+}
+}
+
+@media (min-width: 751px) and (max-width: 1000px){
+  .navegador li {
+    padding-left: 35px;
+  }
+}

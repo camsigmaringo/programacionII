@@ -1,0 +1,326 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  font-family: helvetica;
+  background-color: rgb(19, 23, 39);
+  color: white;
+
+}
+
+#barra{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+background-color: rgba(255, 255, 255, 0.05);
+}
+
+.navegador a:hover{
+  color: rgb(235, 99, 107);
+
+}
+
+.total{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 4%;
+  margin-bottom: 4%;
+}
+
+.buscadores {
+  color: white;
+  background-color: rgba(235, 99, 107, 1) ;
+  font-size: 15px;
+  border-radius: 30px;
+  margin-top: 20px;
+  border: solid white 0px;
+}
+
+.buscadores:hover{
+  border: solid white 1px;
+  cursor: pointer;
+}
+
+.buttons {
+  color: white;
+  font-size: 15px;
+  border-radius: 30px;
+}
+
+.punt img{
+  width: 100%;
+  -webkit-box-shadow: 0 3px 5px rgba(255, 255, 255, 0.1);
+}
+
+.punt{
+  position: relative;
+  width: 16%;
+  margin-top: 10px;
+
+}
+
+.punt h5{
+  width:100%;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  position: absolute;
+  margin: 0;
+  padding: 12%;
+  padding-top: 20%;
+  /* top: 65%; */
+  bottom: 0;
+  /* left: 7%; */
+  text-transform: uppercase;
+  hyphens: auto;
+}
+
+.buscador form{
+  width: 70%;
+}
+
+.punt h6{
+  width:100%;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: 10%;
+  padding-left: 75%;
+  background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+.punt h6 ion-icon{
+  color: gold;
+}
+
+.punt h5:hover{
+  color: rgb(235, 99, 107);
+}
+
+.navegador {
+list-style-type: none;
+}
+
+.navegador li {
+  display: inline;
+  padding: inherit;
+  font-weight: 500;
+}
+
+ul li img{
+  width: 30%;
+}
+
+.navegador li a{
+  color: white;
+  text-decoration: none;
+}
+
+.buscador{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.buscador .seleccionar{
+  width: 100%;
+  justify-content: center;
+  display: block;
+  margin-right: 10px;
+}
+
+.buscador form button{
+  width: 100%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.buscador form label{
+width: 100%;
+display: block;
+margin-bottom: 3px;
+}
+
+.buscador form select{
+width: 100%;
+height: 30px;
+margin-bottom: 7px;
+background-color:rgba(235, 99, 107, 1)
+}
+
+.buscadors{
+  display: inline;
+}
+
+form .white{
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 0px;
+  height: 25px;
+}
+
+.avanzado{
+  display: block;
+  width: 70%;
+}
+
+
+.lupita{
+  position: relative;
+  width: 20px;
+  left: -26px;
+  bottom: -7px;
+}
+.lupa{
+  background-image: url();
+  position: relative;
+  left: -55px;
+  display: none;
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 2%;
+  justify-content: flex-end;
+}
+
+div.name{
+  padding-right: 10px;
+}
+
+.imag img{
+  width: 100%;
+}
+
+.imag{
+  width: 80px;
+  height: 80px;
+  padding-right:10px;
+}
+
+.ver{
+  display: none;
+}
+
+.ver h3{
+  font-size: 20px;
+  margin-left: 4%;
+  margin-bottom: 4%;
+  padding: 5px;
+  width: 110px;
+  color: white;
+}
+
+.ver h3:hover {
+  color: rgb(235, 99, 107);
+  cursor: pointer;
+}
+@media (max-width: 450px){
+
+  .navegador li{
+  width: 100%;
+  }
+
+  ul.navegador{
+    width: 100%;
+    padding-left: 0;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    margin-left: 20px;;
+    margin-right: 45%;
+    padding: 10px;
+    display: block;
+  }
+  ul.navegador{
+  margin-bottom: 0;
+
+  }
+
+  .punt{
+    width: 47%;
+    }
+}
+
+@media (min-width: 451px) and (max-width: 600px){
+
+  .punt{
+  width: 32%;
+    }
+
+  ul.navegador{
+    width: 100%;
+    padding-left: 0;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    margin-left: 20px;;
+    margin-right: 45%;
+    padding: 10px;
+    display: block;
+
+  }
+
+  ul li img{
+    width: 15%;
+  }
+
+  ul.navegador{
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 750px){
+
+  .punt{
+    position: relative;
+  width: 32%;
+    }
+
+  ul.navegador{
+    width: 100%;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    padding-left: 15px;
+  }
+
+  ul li a{
+    font-size: 14px;
+  }
+
+ul li img{
+  width: 12%;
+}
+}
+
+@media (min-width: 751px) and (max-width: 1000px){
+
+  .punt{
+      width: 19%;;
+      }
+
+  .navegador li {
+    padding-left: 35px;
+  }
+}
+.buscadores {
+  color: white;
+  background-color: rgba(235, 99, 107, 1) ;
+  font-size: 15px;
+  border-radius: 30px;
+}
+.buttons {
+  color: white;
+  background-color:rgba(0, 0, 0, 0);
+  font-size: 15px;
+  border-radius: 30px;
+}

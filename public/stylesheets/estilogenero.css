@@ -1,0 +1,328 @@
+
+*{
+  box-sizing: border-box;
+}
+body {
+  font-family: helvetica;
+  background-color: rgb(19, 23, 39);
+  color: white;
+
+}
+
+#barra{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+background-color: rgba(255, 255, 255, 0.05);
+}
+
+.navegador li a{
+  color: white;
+  text-decoration: none;
+}
+
+.navegador a:hover{
+  color: rgb(235, 99, 107);
+}
+
+.navegador {
+list-style-type: none;
+}
+
+.navegador li {
+  display: inline;
+  padding: inherit;
+  font-weight: 500;
+}
+ ul li img{
+   width: 30%;
+ }
+
+
+.textof{
+  width: 65%;
+}
+
+.puntuadas{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.punt img{
+  width: 100%;
+  -webkit-box-shadow: 0 3px 5px rgba(255, 255, 255, 0.1);
+}
+
+.punt{
+  position: relative;
+  width: 16%;
+}
+
+.punt h5{
+  width:100%;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  position: absolute;
+  margin: 0;
+  padding: 12%;
+  padding-top: 20%;
+  /* top: 65%; */
+  bottom: 0;
+  /* left: 7%; */
+  text-transform: uppercase;
+}
+
+.punt h6{
+  position: absolute;
+  top: 73%;
+  left: 7%;
+}
+
+.favoritas{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.fav img{
+  width: 80%;
+  -webkit-box-shadow: 10px 20px 5px black;
+}
+
+.fav{
+  position: relative;
+  width: 16%;
+}
+
+.fav h5{
+  position: absolute;
+  top: 65%;
+  left: 7%;
+  text-transform: uppercase;
+}
+
+.fav h6{
+  position: absolute;
+  top: 73%;
+  left: 7%;
+}
+
+.alaire{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tv img{
+  width: 80%;
+  -webkit-box-shadow: 10px 20px 5px black;
+}
+
+.tv{
+  position: relative;
+  width: 16%;
+}
+
+.tv h5{
+  position: absolute;
+  top: 65%;
+  left: 7%;
+  text-transform: uppercase;
+}
+
+.tv h6{
+  position: absolute;
+  top: 73%;
+  left: 7%;
+}
+
+.titulo{
+  padding-top: 7%;
+}
+.favsemana .textof h2{
+  padding-top: 7%;
+}
+
+.punt h5:hover{
+  color: rgb(235, 99, 107);
+}
+
+.fav h5:hover{
+  color: rgb(235, 99, 107);
+}
+
+.alaire h5:hover{
+  color: rgb(235, 99, 107);
+}
+
+.div ion-icon{
+  color: gold;
+}
+
+
+ul .buscar{
+  padding-right: 30px;
+}
+
+ul li ion-icon:hover{
+  color: rgb(235, 99, 107);
+}
+
+div.generos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.genero a {
+  text-decoration: none;
+}
+.genero:hover {
+  color: rgb(235, 99, 107);
+}
+
+h3 {
+  color: white;
+}
+h3:hover  {
+  color:rgb(235, 99, 107);
+}
+.genero{
+  width: 16%;
+}
+.generos img{
+  width: 100%;
+}
+
+form{
+  display: inline;
+}
+form .white{
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 0px;
+  height: 25px;
+}
+
+.lupita{
+  position: relative;
+  width: 20px;
+  left: -26px;
+  bottom: -7px;
+}
+.lupa{
+  background-image: url();
+  position: relative;
+  left: -55px;
+  display: none;
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 2%;
+  justify-content: flex-end;
+}
+
+div.name{
+  padding-right: 10px;
+}
+
+.imag img{
+  width: 100%;
+}
+
+.imag{
+  width: 80px;
+  height: 80px;
+  padding-right:10px;
+}
+
+@media (max-width: 450px){
+.genero{
+  width: 45%;
+}
+
+.navegador li{
+width: 100%;
+}
+
+ul.navegador{
+  width: 100%;
+  padding-left: 0;
+}
+
+ul.navegador li{
+  width: 100%;
+  margin-left: 20px;;
+  margin-right: 45%;
+  padding: 10px;
+  display: block;
+}
+ul.navegador{
+margin-bottom: 0;
+
+}
+
+}
+@media (min-width: 451px) and (max-width: 600px){
+  .genero{
+    width: 45%;
+  }
+
+  ul.navegador{
+    width: 100%;
+    padding-left: 0;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    margin-left: 20px;;
+    margin-right: 45%;
+    padding: 10px;
+    display: block;
+
+  }
+
+  ul li img{
+    width: 15%;
+  }
+
+  ul.navegador{
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 750px){
+  .genero{
+    width: 30%;
+  }
+  ul.navegador{
+    width: 100%;
+  }
+
+  ul.navegador li{
+    width: 100%;
+    padding-left: 15px;
+  }
+
+  ul li a{
+    font-size: 14px;
+  }
+
+ul li img{
+  width: 12%;
+}
+
+}
+
+@media (min-width: 751px) and (max-width: 1000px){
+  .genero{
+    width: 22%;
+  }
+  .navegador li {
+    padding-left: 35px;
+  }
+
+}
