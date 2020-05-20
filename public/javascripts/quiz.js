@@ -83,7 +83,7 @@ window.onload = function (){
       var total = document.querySelector(".total");
       total.innerHTML += `<div class="total"><div class="imagen"><img src="http://image.tmdb.org/t/p/w200/`+ poster + `" alt=""></div><div class="detalle"><div class="display">
       <h2>`+nombre +`</h2><h4>`+estrellas+`<ion-icon name="star"></ion-icon></h4></div>
-      <h3>`+ anio +`</h3><h6>Genero: <a href=ungenero.html?id=`+ generoId + "&tituloGenero=" + generos +`>`+generos+`</a></h6><h6 class="">Lenguaje original: `+ lenguajeOriginal +`</h6>
+      <h3>`+ anio +`</h3><h6>Genero: <a href=ungenero?id=`+ generoId + "&tituloGenero=" + generos +`>`+generos+`</a></h6><h6 class="">Lenguaje original: `+ lenguajeOriginal +`</h6>
       <p>`+ sinopsis +`</p></div></div>`
 
       // document.querySelector(".titulo").innerHTML += "<br><h3>Titulos similares para "+ nombre +":</h3>"

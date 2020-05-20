@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-var inicioController = require('../controllers/inicioController.js')
-
-/* GET home page. */
+/* GET 404 page. */
 router.get('/', function(req, res, next) {
-  res.render('index', inicioController.inicio);
+  res.render('404', { title: '404' });
 });
 
 module.exports = router;

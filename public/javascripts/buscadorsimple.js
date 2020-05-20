@@ -19,7 +19,7 @@ window.onload = function(){
         console.log(serie);
 
         if (serie.length == 0){
-          document.querySelector(".total").innerHTML += "<h2> No se han encontrado resultados para '" + loBuscado + "', por favor intenta denuevo.</h2><div class='buscadorn'><form class='buscadornuevo' action='buscadorsimple.html' method='get'><input type='text' class='white' name='buscador' requiered value='' placeholder= 'Buscar.....'><input type='submit' class='lupa' name='' value=''></form><div>"
+          document.querySelector(".total").innerHTML += "<h2> No se han encontrado resultados para '" + loBuscado + "', por favor intenta denuevo.</h2><div class='buscadorn'><form class='buscadornuevo' action='buscadorsimple' method='get'><input type='text' class='white' name='buscador' requiered value='' placeholder= 'Buscar.....'><input type='submit' class='lupa' name='' value=''></form><div>"
           // cuando no se encuentra el resultado con dos tres letras minimas de una serie
 
           document.querySelector(".ver").style.display = "none"
@@ -28,7 +28,7 @@ window.onload = function(){
           document.querySelector(".resultado").innerHTML += "<h2>Resultado de '"+ loBuscado +"':</h2>"
           for (var i = 0; i < serie.length; i++) {
             if(serie[i].vote_average != 0 && serie[i].poster_path != null){
-            document.querySelector(".total").innerHTML += "<div class='punt'><a href=detalle.html?id="+ serie[i].id +"><img src=http://image.tmdb.org/t/p/w200"+ serie[i].poster_path+"></a><h5>"+serie[i].name + "</h5><h6>"+serie[i].vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
+            document.querySelector(".total").innerHTML += "<div class='punt'><a href=detalle?id="+ serie[i].id +"><img src=http://image.tmdb.org/t/p/w200"+ serie[i].poster_path+"></a><h5>"+serie[i].name + "</h5><h6>"+serie[i].vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
 
             document.querySelector(".ver").style.display = "block";
 
@@ -76,7 +76,7 @@ window.onload = function(){
         if (respuesta.results.length != 0) {
           for (var i = 0; i < serie.length; i++) {
             if(serie[i].vote_average != 0 && serie[i].poster_path != null){
-            document.querySelector(".total").innerHTML += "<div class='punt'><a href=detalle.html?id="+ serie[i].id +"><img src=http://image.tmdb.org/t/p/w200"+ serie[i].poster_path+"></a><h5>"+serie[i].name + "</h5><h6>"+serie[i].vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
+            document.querySelector(".total").innerHTML += "<div class='punt'><a href=detalle?id="+ serie[i].id +"><img src=http://image.tmdb.org/t/p/w200"+ serie[i].poster_path+"></a><h5>"+serie[i].name + "</h5><h6>"+serie[i].vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
 
             document.querySelector(".ver").style.display = "block";
             }

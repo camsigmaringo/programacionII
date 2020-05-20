@@ -70,7 +70,7 @@ window.addEventListener("load", function() {
     var total = document.querySelector("div.total");
     total.innerHTML += `<div class="total"><div class="imagen"><img src="http://image.tmdb.org/t/p/w200/`+ poster + `" alt=""></div><div class="detalle"><div class="display">
     <h2>`+nombre +`</h2><h4>`+estrellas+`<ion-icon name="star"></ion-icon></h4></div>
-    <h3>`+ anio +`</h3><h6>Genero: <a href=ungenero.html?id=`+ generoId + "&tituloGenero=" + generos +`>`+generos+`</a></h6><h6 class="">Lenguaje original: `+ lenguajeOriginal +`</h6>
+    <h3>`+ anio +`</h3><h6>Genero: <a href=ungenero?id=`+ generoId + "&tituloGenero=" + generos +`>`+generos+`</a></h6><h6 class="">Lenguaje original: `+ lenguajeOriginal +`</h6>
     <p>`+ sinopsis +`</p></div></div>`
 })
 // es para que cambie segun la serie tiene informacion distinta por ende necesitamos que vaya cambiando el nombre estrella poster etc.
@@ -90,7 +90,7 @@ console.log(reco);
 
 for (var i = 0; i <5; i++) {
 
-  document.querySelector(".rr1").innerHTML += "<div class='punt'><a href=detalle.html?id="+ reco[i].id +"><img src=http://image.tmdb.org/t/p/w200"+ reco[i].poster_path+"></a><h5>"+reco[i].name + "</h5><h6>"+reco[i].vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
+  document.querySelector(".rr1").innerHTML += "<div class='punt'><a href=detalle?id="+ reco[i].id +"><img src=http://image.tmdb.org/t/p/w200"+ reco[i].poster_path+"></a><h5>"+reco[i].name + "</h5><h6>"+reco[i].vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
 }
 
 // para que aparezcan segun el detalle de la serie que aparezca ver mas como recomendadas segun la pelicula  info de las peliculas como el detallle etc.

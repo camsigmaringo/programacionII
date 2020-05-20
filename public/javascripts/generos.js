@@ -10,10 +10,10 @@ window.onload = function() {
 
     var genero = respuesta.genres;
     for (var i = 0; i < genero.length; i++) {
-      document.querySelector(".generos").innerHTML += "<a href=ungenero.html?id=" + genero[i].id + "&tituloGenero=" + genero[i].name + "><div class='genero'><h3>"+ genero[i].name +"</h3><img src='../Archivos/"+genero[i].name +".jpg' alt=''><div></a>"}
+      document.querySelector(".generos").innerHTML += "<a href=ungenero?id=" + genero[i].id + "&tituloGenero=" + genero[i].name + "><div class='genero'><h3>"+ genero[i].name +"</h3><img src='../Archivos/"+genero[i].name +".jpg' alt=''><div></a>"}
   }) // cuando cambia el numerito desde el https
 
-// le tenes que agregar para que busco en un genero.html el id que sea relfejado en el otro html para que te busque en cierto genero ciertas perliculas. <a href=ungenero.html?id= tiene que estar vinculado con el js de genero.
+// le tenes que agregar para que busco en un genero el id que sea relfejado en el otro html para que te busque en cierto genero ciertas perliculas. <a href=ungenero?id= tiene que estar vinculado con el js de genero.
 var buscar = document.querySelector(".buscadors") //ESTO ES el formT
 var buscado = document.querySelector(".white") //ESTO ES EL INPUT PARA ESCRIBIR
 

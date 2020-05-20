@@ -22,7 +22,7 @@ console.log(recuperoStorage);
       })
      .then(function(results) {
        console.log(results);
-        document.querySelector(".favoritas").innerHTML += "<div class='punt'><a href=detalle.html?id="+ results.id +"><img src=http://image.tmdb.org/t/p/w200"+ results.poster_path +"></a><h5>" + results.name + "</h5><h6>"+results.vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
+        document.querySelector(".favoritas").innerHTML += "<div class='punt'><a href=detalle?id="+ results.id +"><img src=http://image.tmdb.org/t/p/w200"+ results.poster_path +"></a><h5>" + results.name + "</h5><h6>"+results.vote_average+"<ion-icon name='star'></ion-icon></h6></div>"
       })
   }
 }

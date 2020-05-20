@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-var inicioController = require('../controllers/inicioController.js')
-
-/* GET home page. */
+/* GET Genero page. */
 router.get('/', function(req, res, next) {
-  res.render('index', inicioController.inicio);
+  res.render('genero', { title: 'Genero' });
 });
 
 module.exports = router;
