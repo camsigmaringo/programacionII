@@ -59,7 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 app.use('/genero', generoRouter);
 app.use('/detalle', detalleRouter);
 app.use('/buscador', buscadorRouter);
@@ -92,6 +92,7 @@ app.post('/auth', function(request, response) {
         if(bcrypt.compareSync(password, user.password)){
           request.session.loggedin = true;
           request.session.username = username;
+
           response.redirect('/');
         } else {
           response.send('Usuario o contraseña incorrecta!');
@@ -99,7 +100,7 @@ app.post('/auth', function(request, response) {
 
 			} else {
         // request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
-				response.send('Usuario o contraseña incorrecta!');
+				response.send('Usuario no se encuentra registrado!');
 			}			
 			response.end();
 		});
@@ -128,6 +129,39 @@ app.post('/register', (request, response) => {
       //   request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.')
       // );
       response.status(201).send(`User added with ID: ${result.insertId}`);
+  });
+});
+
+//Lista de usuarios
+app.get('/users', (request, response) => {
+
+  let sql='SELECT * FROM usuarios';
+
+  let query = connection.query(sql, (err, rows) => {
+    if(err) throw err;
+
+    // console.log(rows)
+    response.render('usuarios', {
+      title : "Lista de usuarios",
+      usuarios : rows
+    })
+  });
+});
+
+//detalle de usuario
+app.get('/users/:userid', (request, response) => {
+  let userid = request.params.userid;
+  let sql='SELECT * FROM usuarios where id = ${userid}';
+
+  // let query = connection.query('SELECT * FROM usuarios where id = ?', userid , (err, rows) => {
+  let query = connection.query('select * from usuarios as u inner join resenas as r where u.id = ? and u.id = r.idUser', userid , (err, rows) => {
+    if(err) throw err;
+
+    // console.log(rows);
+    response.render('userdetail', {
+      title : "Detalle de usuarios",
+      usuario : rows
+    })
   });
 });
 

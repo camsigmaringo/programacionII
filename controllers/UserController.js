@@ -45,6 +45,39 @@ module.exports ={
 			isAuthenticated : req.isAuthenticated(),
 			user : req.user
 		});
-	}
+	},
+
+
+	postLogin: function(request, response) {
+		var username = request.body.username;
+		// var salt = bcrypt.genSaltSync(10);
+		// var password = bcrypt.hashSync(request.body.password, salt);
+		  var password = request.body.password;
+		  if (username && password) {
+			  // connection.query('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+			connection.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results, fields) {
+				  if (results.length > 0) {
+	  
+			  var user = results[0];
+			  // console.log(user)
+			  if(bcrypt.compareSync(password, user.password)){
+				request.session.loggedin = true;
+				request.session.username = username;
+				response.redirect('/');
+			  } else {
+				response.send('Usuario o contraseña incorrecta!');
+			  }
+	  
+				  } else {
+			  // request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
+					  response.send('Usuario o contraseña incorrecta!');
+				  }			
+				  response.end();
+			  });
+		  } else {
+			  response.send('Please enter Username and Password!');
+			  response.end();
+		  }
+	  }
 
 };

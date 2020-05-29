@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <% if(usuarios.length==0) { %>
+        <h2>No hay resultados</h2>
+    <% } else { %>
+    <table style="border: solird 1px #000;" class="table">
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th>Fecha de Nacimiento</th>
+        </tr>
+        <% usuarios.forEach(function(user) { %>
+            <tr>
+                <td><%=user.id%></td>
+                <td><%=user.username%></td>
+                <td><%=user.email%></td>
+                <td><%=user.born_date%></td>
+            </tr>
+            <% }); %>
+
+        </table>
+
+<% } %>
+    <!-- <ul>
+        <%for(let i=0; i<usuarios.length; i++){%>
+        <li><%=usuarios[i].username%></li>
+        <%}%>
+    </ul> -->
+
+    
+</body>
+</html>
