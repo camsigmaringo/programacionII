@@ -72,6 +72,8 @@ window.addEventListener("load", function() {
     <h2>`+nombre +`</h2><h4>`+estrellas+`<ion-icon name="star"></ion-icon></h4></div>
     <h3>`+ anio +`</h3><h6>Genero: <a href=ungenero?id=`+ generoId + "&tituloGenero=" + generos +`>`+generos+`</a></h6><h6 class="">Lenguaje original: `+ lenguajeOriginal +`</h6>
     <p>`+ sinopsis +`</p></div></div>`
+    
+    document.querySelector(".idPelicula").value = idSerie;
 })
 // es para que cambie segun la serie tiene informacion distinta por ende necesitamos que vaya cambiando el nombre estrella poster etc.
 

@@ -79,8 +79,6 @@ app.use(function(req, res, next){
 //login
 app.post('/auth', function(request, response) {
   var username = request.body.username;
-  // var salt = bcrypt.genSaltSync(10);
-  // var password = bcrypt.hashSync(request.body.password, salt);
 	var password = request.body.password;
 	if (username && password) {
 		// connection.query('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
@@ -164,6 +162,72 @@ app.get('/users/:userid', (request, response) => {
     })
   });
 });
+
+
+
+//agregar reseña
+app.post('/addresena', (request, response) => {
+
+  var username = request.body.username;
+  var password = request.body.password;
+  var resena = request.body.resena;
+  var idPelicula = request.body.idPelicula;
+  
+  if(username && password && resena) {
+    //validar que el usuario exista y conincida la clave en la base
+  connection.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results, fields) {
+    if (results.length > 0) {
+
+      var user = results[0];
+      // console.log(user)
+      if(bcrypt.compareSync(password, user.password)){
+
+        var userResena = {
+          idPelicula : idPelicula,
+          idUser : user.id,
+          resena : resena
+        }
+        
+        //inserto en la base la reseña
+        connection.query('INSERT INTO resenas SET ?', userResena, (error, result) => {
+            if (error) throw error;
+
+            console.log(result)
+            response.status(201).send(`resena agregada: ${result.insertId}`);
+        });
+
+        // response.redirect('/');
+      } else {
+        response.send('Usuario o contraseña incorrecta!');
+      }
+
+    } else {
+      // request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
+      response.send('Usuario no se encuentra registrado!');
+    }	
+  });
+    } else {
+      response.send('Faltan campos por llenar')
+    }
+
+});
+
+//detalle de resena de pelicula
+// app.get('/resena/:idpelicula', (request, response) => {
+//   let userid = request.params.userid;
+
+//   let query = connection.query('SELECT * FROM resenas where idPelicula = ?', idpelicula , (err, rows) => {
+//   // let query = connection.query('select * from usuarios as u inner join resenas as r where u.id = ? and u.id = r.idUser', userid , (err, rows) => {
+//     if(err) throw err;
+
+//     // console.log(rows);
+//     response.render('detalle', {
+//       resena : rows
+//     })
+//   });
+// });
+
+
 
 
 // catch 404 and forward to error handler

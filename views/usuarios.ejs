@@ -17,15 +17,13 @@
     <% } else { %>
     <table style="border: solird 1px #000;" class="table">
         <tr>
-            <th>ID</th>
             <th>Usuario</th>
             <th>Correo</th>
             <th>Fecha de Nacimiento</th>
         </tr>
         <% usuarios.forEach(function(user) { %>
             <tr>
-                <td><%=user.id%></td>
-                <td><%=user.username%></td>
+                <td><a href='/users/<%=user.id%>'><%=user.username%></a></td>
                 <td><%=user.email%></td>
                 <td><%=user.born_date%></td>
             </tr>
