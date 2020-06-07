@@ -1,5 +1,62 @@
 
 window.addEventListener("load", function() {
+
+  var idPelicula = new URLSearchParams(location.search).get("id");
+  fetch('/getresenas/'+idPelicula)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(results) {
+    console.log("HOLA");
+    console.log(results);
+    if(results.length == 0){
+      document.querySelector(".resena-list").innerHTML += `<div class='resenas'><span class='resena'><p> No hay reseñas</p>`
+    } else {
+      for (var i = 0; i <results.length; i++) {
+        switch(results[i].puntaje){
+          case 1:
+            var star = `<span class='fa fa-star checked'></span>
+            <span class='fa fa-star'></span>
+            <span class='fa fa-star'></span>
+            <span class='fa fa-star'></span>
+            <span class='fa fa-star'></span>`;
+          break;
+          case 2:
+            var star = `<span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star'></span>
+            <span class='fa fa-star'></span>
+            <span class='fa fa-star'></span>`;
+          break;
+          case 3:
+            var star = `<span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star'></span>
+            <span class='fa fa-star'></span>`;
+          break;
+          case 4:
+            var star = `<span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>`;
+          break;
+          case 5:
+            var star = `<span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>
+            <span class='fa fa-star checked'></span>`;
+          break;
+        }
+        document.querySelector(".resena-list").innerHTML += `<div class='resenas'><span class='resena'><p>` + results[i].resena + `</p><p><b>Usuario:</b> ` + results[i].username + `<br><b>Email:</b> ` + results[i].email +`</p>
+        </span>
+        <div>` + star + `</div></div>`;
+        }
+      }
+  });
+
   var numeroPagina = 1
   console.log("OK");
   var idSerie = new URLSearchParams(location.search).get("id");
@@ -250,4 +307,14 @@ seriesFavoritas = JSON.parse(recuperoStorage);
       localStorage.setItem("seriesFavoritas", informacionStorage);
       console.log(localStorage);
     }
+  
+  
+    
+
+
+
+
+
 })
+
+

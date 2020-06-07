@@ -1,8 +1,7 @@
 var config = {
     host: 'localhost',
-    port: 6603,
     user: 'root',
-    password: 'helloworld',
+    password: '',
     database: 'telatiro'
 
 };

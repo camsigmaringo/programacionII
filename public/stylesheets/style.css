@@ -79,3 +79,28 @@ a {
     text-align: center;
     vertical-align: middle;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* tr:nth-child(even) {background-color: #f2f2f2;} */
+
+  .checked {
+    color: orange;
+  }
+
+  .userSearch {
+      margin: 20px 0px;
+  }
+  .userSearch > .searchuser {
+      width: 200px!important;
+      padding: 10px!important;
+
+  }

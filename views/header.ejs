@@ -1,0 +1,43 @@
+<DOCTYPE html>
+    <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title><%=title%></title>
+      <link rel="stylesheet" href="/stylesheets/estiloinicio.css">
+      <link rel="stylesheet" href="/stylesheets/estilobuscador.css">
+      <link rel="stylesheet" href="/stylesheets/buscadorsimple.css">
+      <link rel="stylesheet" href="/stylesheets/estilodetalle.css">
+      <link rel="stylesheet" href="/stylesheets/estilogenero.css">
+      <link rel="stylesheet" href="/stylesheets/favoritos.css">
+      <link rel="stylesheet" href="/stylesheets/quiz.css">
+      <link rel="stylesheet" href="/stylesheets/ungenero.css">
+      <link rel="stylesheet" href="/stylesheets/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js" charset="utf-8"></script>
+    </head>
+    <body>
+      <header>
+        <nav id="barra">
+          <ul class="navegador">
+            <li class="logo"><a href="index"><img src="/images/logo.png" alt=""></a></li>
+          </ul>
+          <ul class="navegador">
+            <li><a href="favoritos">Favoritos</a></li>
+            <li><a href="genero">Generos</a></li>
+            <li><a href="quiz">Te la tiro..</a></li>
+            <li><a href="buscador">Buscador avanzado</a></li>
+            <li class="buscar">
+              <form class='buscadors' action='buscadorsimple' method='get'>
+                <input type='text' class="white" name='buscador' requiered value=''>
+                <input type='submit' class="lupa" name='' value=''>
+                <img class="lupita" src="/images/Lupa.png" alt="">
+              </form>
+            </li>
+            <li><a href="users">Usuarios</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="registro">Registro</a></li>
+          </ul>
+        </nav>
+      </header>

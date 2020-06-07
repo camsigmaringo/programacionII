@@ -71,15 +71,16 @@
 
                     <input type="hidden" name="idPelicula" class="idPelicula">
                     <input type="text" name="username" placeholder="Username" required style="width: 189px; height: 30px;">
-                    <input type="tex" name="password" placeholder="Password" required style="width: 189px; height: 30px;"><br><br>
+                    <input type="password" name="password" placeholder="Password" required style="width: 189px; height: 30px;"><br><br>
                     <textarea name="resena" class="input-resena" cols="50" rows="10" placeholder="Resena" required></textarea><br>
                     <div>
+                        <label for="">Puntaje&nbsp;&nbsp;&nbsp;</label>
                         <span class="star-rating col-sm-10">
-                          <input type="radio" name="rating" value="1"><i></i>
-                          <input type="radio" name="rating" value="2"><i></i>
-                          <input type="radio" name="rating" value="3"><i></i>
-                          <input type="radio" name="rating" value="4"><i></i>
-                          <input type="radio" name="rating" value="5"><i></i>
+                          <input type="radio" name="puntaje" value="1"><i></i>
+                          <input type="radio" name="puntaje" value="2"><i></i>
+                          <input type="radio" name="puntaje" value="3"><i></i>
+                          <input type="radio" name="puntaje" value="4"><i></i>
+                          <input type="radio" name="puntaje" value="5"><i></i>
                         </span>
                     </div>
                     <br>
@@ -94,16 +95,7 @@
 
         </div>
 
-        <div class="resena-list">
-            <textarea readonly id="" cols="50" rows="5">Muy buena la peli</textarea><br>
-            <div>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-        </div>
+        <div class="resena-list"></div>
 
     </div>
 

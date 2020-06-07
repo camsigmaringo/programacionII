@@ -1,0 +1,29 @@
+<%- include('header'); %>
+
+
+
+    <h2>Editar Reseña</h2>
+    
+    <div>
+        <form action="/guardarresena" method="POST">
+            <input type="hidden" name="id" readonly value='<%=resena.id%>'><br>
+            <input type="text" name="idUser" readonly value='<%=resena.idUser%>'><br>
+            <input type="text" name="idPelicula" readonly value='<%=resena.idPelicula%>'><br>
+            <textarea name="resena"  cols="30" rows="10" required><%=resena.resena%></textarea><br>
+            <label for="">Puntaje&nbsp;&nbsp;&nbsp;</label>
+            <span class="star-rating col-sm-10">
+                <input type="radio" name="puntaje" value="1"><i></i>
+                <input type="radio" name="puntaje" value="2"><i></i>
+                <input type="radio" name="puntaje" value="3"><i></i>
+                <input type="radio" name="puntaje" value="4"><i></i>
+                <input type="radio" name="puntaje" value="5"><i></i>
+            </span>
+            <br><br><br>
+            <button type="submit">Actualizar</button>
+        </form>
+    </div>
+
+
+
+
+    <%- include('footer'); %>

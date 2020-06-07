@@ -12,6 +12,14 @@ body {
 
 }
 
+.resenas{
+  margin: 10px 0px;
+  background-color: black;
+  padding: 10px;
+  width: 50%;
+  border-radius: 10px;
+}
+
 button:hover{
   cursor: pointer;
 }
@@ -551,6 +559,7 @@ div.flex{
     height: 200px;
   }
 
+  
 
 
 }
