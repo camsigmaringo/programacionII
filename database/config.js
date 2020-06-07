@@ -1,8 +1,9 @@
-var config ={
-	host : 'localhost',
-	user : 'root',
-	password :'',
-	database : 'telatiro'
+var config = {
+    host: 'localhost',
+    port: 6603,
+    user: 'root',
+    password: 'helloworld',
+    database: 'telatiro'
 
 };
 

@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 var bcrypt = require('bcryptjs')
 
 var configDB = require('./database/config')
-//para mensajes de alertas
+    //para mensajes de alertas
 var flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
@@ -29,20 +29,21 @@ var registroRouter = require('./routes/registro');
 var app = express();
 
 var connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '',
-	database : 'telatiro'
+    host: 'localhost',
+    port: 6603,
+    user: 'root',
+    password: 'helloworld',
+    database: 'telatiro'
 });
 
 //sesion
 app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(flash());
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
@@ -72,95 +73,96 @@ app.use('/login', loginRouter);
 app.use('/registro', registroRouter);
 
 
-app.use(function(req, res, next){
-  res.locals.mensajeRegistro= req.flash('mensajeRegistro');
-  next();
- });
+app.use(function(req, res, next) {
+    res.locals.mensajeRegistro = req.flash('mensajeRegistro');
+    next();
+});
 //login
 app.post('/auth', function(request, response) {
-  var username = request.body.username;
-	var password = request.body.password;
-	if (username && password) {
-		// connection.query('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-      connection.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results, fields) {
-			if (results.length > 0) {
+    var username = request.body.username;
+    var password = request.body.password;
+    if (username && password) {
+        // connection.query('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+        connection.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results, fields) {
+            console.log(results);
+            if (results.length > 0) {
 
-        var user = results[0];
-        // console.log(user)
-        if(bcrypt.compareSync(password, user.password)){
-          request.session.loggedin = true;
-          request.session.username = username;
+                var user = results[0];
+                // console.log(user)
+                if (bcrypt.compareSync(password, user.password)) {
+                    request.session.loggedin = true;
+                    request.session.username = username;
 
-          response.redirect('/');
-        } else {
-          response.send('Usuario o contraseña incorrecta!');
-        }
+                    response.redirect('/');
+                } else {
+                    response.send('Usuario o contraseña incorrecta!');
+                }
 
-			} else {
-        // request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
-				response.send('Usuario no se encuentra registrado!');
-			}			
-			response.end();
-		});
-	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
-	}
+            } else {
+                // request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
+                response.send('Usuario no se encuentra registrado!');
+            }
+            response.end();
+        });
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
 });
 
 //registro
 app.post('/register', (request, response) => {
-  var salt = bcrypt.genSaltSync(10);
-  var password = bcrypt.hashSync(request.body.password, salt);
-  var userRegister = {
-    username : request.body.username,
-    email : request.body.email,
-    password : password,
-    born_date : request.body.born_date
-  }
+    var salt = bcrypt.genSaltSync(10);
+    var password = bcrypt.hashSync(request.body.password, salt);
+    var userRegister = {
+        username: request.body.username,
+        email: request.body.email,
+        password: password,
+        born_date: request.body.born_date
+    }
 
-  connection.query('INSERT INTO usuarios SET ?', userRegister, (error, result) => {
-      if (error) throw error;
+    connection.query('INSERT INTO usuarios SET ?', userRegister, (error, result) => {
+        if (error) throw error;
 
-      console.log(result)
-      // response.status(201).send(
-      //   request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.')
-      // );
-      response.status(201).send(`User added with ID: ${result.insertId}`);
-  });
+        console.log(result)
+            // response.status(201).send(
+            //   request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.')
+            // );
+        response.status(201).send(`User added with ID: ${result.insertId}`);
+    });
 });
 
 //Lista de usuarios
 app.get('/users', (request, response) => {
 
-  let sql='SELECT * FROM usuarios';
+    let sql = 'SELECT * FROM usuarios';
 
-  let query = connection.query(sql, (err, rows) => {
-    if(err) throw err;
+    let query = connection.query(sql, (err, rows) => {
+        if (err) throw err;
 
-    // console.log(rows)
-    response.render('usuarios', {
-      title : "Lista de usuarios",
-      usuarios : rows
-    })
-  });
+        // console.log(rows)
+        response.render('usuarios', {
+            title: "Lista de usuarios",
+            usuarios: rows
+        })
+    });
 });
 
 //detalle de usuario
 app.get('/users/:userid', (request, response) => {
-  let userid = request.params.userid;
-  let sql='SELECT * FROM usuarios where id = ${userid}';
+    let userid = request.params.userid;
+    let sql = 'SELECT * FROM usuarios where id = ${userid}';
 
-  // let query = connection.query('SELECT * FROM usuarios where id = ?', userid , (err, rows) => {
-  let query = connection.query('select * from usuarios as u inner join resenas as r where u.id = ? and u.id = r.idUser', userid , (err, rows) => {
-    if(err) throw err;
+    // let query = connection.query('SELECT * FROM usuarios where id = ?', userid , (err, rows) => {
+    let query = connection.query('select * from usuarios as u inner join resenas as r where u.id = ? and u.id = r.idUser', userid, (err, rows) => {
+        if (err) throw err;
 
-    // console.log(rows);
-    response.render('userdetail', {
-      title : "Detalle de usuarios",
-      usuario : rows
-    })
-  });
+        // console.log(rows);
+        response.render('userdetail', {
+            title: "Detalle de usuarios",
+            usuario: rows
+        })
+    });
 });
 
 
@@ -168,46 +170,46 @@ app.get('/users/:userid', (request, response) => {
 //agregar reseña
 app.post('/addresena', (request, response) => {
 
-  var username = request.body.username;
-  var password = request.body.password;
-  var resena = request.body.resena;
-  var idPelicula = request.body.idPelicula;
-  
-  if(username && password && resena) {
-    //validar que el usuario exista y conincida la clave en la base
-  connection.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results, fields) {
-    if (results.length > 0) {
+    var username = request.body.username;
+    var password = request.body.password;
+    var resena = request.body.resena;
+    var idPelicula = request.body.idPelicula;
 
-      var user = results[0];
-      // console.log(user)
-      if(bcrypt.compareSync(password, user.password)){
+    if (username && password && resena) {
+        //validar que el usuario exista y conincida la clave en la base
+        connection.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results, fields) {
+            if (results.length > 0) {
 
-        var userResena = {
-          idPelicula : idPelicula,
-          idUser : user.id,
-          resena : resena
-        }
-        
-        //inserto en la base la reseña
-        connection.query('INSERT INTO resenas SET ?', userResena, (error, result) => {
-            if (error) throw error;
+                var user = results[0];
+                // console.log(user)
+                if (bcrypt.compareSync(password, user.password)) {
 
-            console.log(result)
-            response.status(201).send(`resena agregada: ${result.insertId}`);
+                    var userResena = {
+                        idPelicula: idPelicula,
+                        idUser: user.id,
+                        resena: resena
+                    }
+
+                    //inserto en la base la reseña
+                    connection.query('INSERT INTO resenas SET ?', userResena, (error, result) => {
+                        if (error) throw error;
+
+                        console.log(result)
+                        response.status(201).send(`resena agregada: ${result.insertId}`);
+                    });
+
+                    // response.redirect('/');
+                } else {
+                    response.send('Usuario o contraseña incorrecta!');
+                }
+
+            } else {
+                // request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
+                response.send('Usuario no se encuentra registrado!');
+            }
         });
-
-        // response.redirect('/');
-      } else {
-        response.send('Usuario o contraseña incorrecta!');
-      }
-
     } else {
-      // request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
-      response.send('Usuario no se encuentra registrado!');
-    }	
-  });
-    } else {
-      response.send('Faltan campos por llenar')
+        response.send('Faltan campos por llenar')
     }
 
 });
@@ -232,18 +234,18 @@ app.post('/addresena', (request, response) => {
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
