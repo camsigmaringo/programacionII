@@ -1,6 +1,8 @@
 var mysql = require('mysql');
 var bcrypt = require('bcryptjs');
 var storage = require('node-sessionstorage');
+var notify = require('node-notify');
+
 
 
 
@@ -32,8 +34,7 @@ module.exports = {
 		if (username && password) {
 			// connection.query('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
 			db.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results, fields) {
-				console.log(results);
-				if (results.length > 0) {
+				if (results) {
 	
 					var user = results[0];
 					// console.log(user)
@@ -46,20 +47,16 @@ module.exports = {
 	
 						response.redirect('/miperfil');
 					} else {
-						alert('Usuario o contraseña incorrecta!');
-						res.redirect(req.headers.referer);
+						response.render('login', {title: 'login', error: "Usuario o contraseña incorrecta!"});
 					}
 	
 				} else {
-					// request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
-					alert('Usuario no se encuentra registrado!');
-					res.redirect(req.headers.referer);
+					response.render('login', {title: 'login', error: "Usuario no se encuentra registrado!"});
 				}
 				response.end();
 			});
 		} else {
-			response.send('Please enter Username and Password!');
-			response.end();
+			response.render('login', {title: 'login', error: "ngrese usuario y contrasena"});
 		}
 	  },
 
@@ -72,11 +69,10 @@ module.exports = {
 		var idPelicula = request.body.idPelicula;
 		var url = request.headers.referer;
 
-		if (username && password && resena) {
+		if (username && password && resena && puntaje) {
 			//validar que el usuario exista y conincida la clave en la base
 			db.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results) {
-				console.log((result));
-				if (results) {
+				if (results.length > 0) {
 	
 					var user = results[0];
 					// console.log(user)
@@ -95,22 +91,20 @@ module.exports = {
 							response.redirect(request.headers.referer);
 						});
 	
-						// response.redirect('/');
 					} else {
-						// alert('Usuario o contraseña incorrecta!');
-						response.redirect('/login');
+						response.render('detalle', {title: 'Detalle', error: "Contrasena incorrecta"});
 						
 					}
 	
 				} else {
-					// request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.');
-					// alert('Usuario no se encuentra registrado!');
-					res.redirect(request.headers.referer);
+					response.render('detalle', {title: 'Detalle', error: "Usuario no se encuentra registrado"});
+					//response.redirect(request.headers.referer);
 				}
 			});
 		} else {
-			alert('Faltan campos por llenar')
-			res.redirect(req.headers.referer);
+//			alert('Faltan campos por llenar')
+//			res.redirect(req.headers.referer);
+			response.render('detalle', {title: 'Detalle', error: "Faltan campos por llenar"});
 		}
 	
 	},

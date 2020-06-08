@@ -4,7 +4,7 @@ var userController = require('../controllers/UserController')
 
 /* GET Login page. */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Login' });
+  res.render('login', { title: 'Login', error: "" });
 });
 
 module.exports = router;

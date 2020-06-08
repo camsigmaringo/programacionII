@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "alert-node": "^3.0.11",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
@@ -19,6 +20,7 @@
     "moment": "^2.26.0",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
+    "node-notify": "^1.0.0",
     "node-sessionstorage": "^1.0.0",
     "sessionstorage": "^0.1.0"
   }
