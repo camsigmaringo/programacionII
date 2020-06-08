@@ -183,18 +183,47 @@ module.exports = {
 	},
 
 	updateResena: (req, res) => {
+		
 		var resenaId = req.body.id;
 		var idPelicula = req.body.idPelicula;
 		var idUser = req.body.idUser;
-		var resena = req.body.resena;
-		var puntaje = req.body.puntaje;
+		var username = req.body.username;
+		var password = req.body.password;
+		var url = req.headers.referer;
 
-		let sql = "UPDATE resenas SET idPelicula = '" + resenaId + "', idUser = '" + idUser + "', resena = '" + resena + "', puntaje = " + puntaje;
+			//validar que el usuario exista y conincida la clave en la base
+			db.query('SELECT * FROM usuarios WHERE username = ?', username, function(error, results) {
+				if (results.length > 0) {
+	
+					var user = results[0];
+					// console.log(user)
+					if (bcrypt.compareSync(password, user.password)) {
+	
+	
+						//busco la resena primero
+						db.query('SELECT * FROM resenas WHERE id = ?', resenaId, (errores, row) => {
+							let resenaOld = row[0];
+							
+							var resena = (req.body.resena == null) ? resenaOld.resena : req.body.resena;
+							var puntaje = (req.body.puntaje == null) ? resenaOld.puntaje : req.body.resena;
+							
+							//inserto en la base la reseña
+							let sql = "UPDATE resenas SET idPelicula = '" + idPelicula + "', idUser = '" + idUser + "', resena = '" + resena + "', puntaje = '" + puntaje + "' WHERE id = " + resenaId;
+							db.query(sql, (err, result) => {
+								res.redirect('/miperfil');
+					 
+							});
+						})
+	
+					} else {
+						
+					}
+	
+				} else {
+					res.redirect('/miperfil');				}
+			});		
 		
-		db.query(sql, (err, result) => {
-			res.redirect('/miperfil');
- 
-		});
+
 	},
 
 
