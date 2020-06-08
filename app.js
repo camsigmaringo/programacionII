@@ -70,16 +70,11 @@ app.use('/ungenero', ungeneroRouter);
 app.use('/login', loginRouter);
 app.use('/registro', registroRouter);
 
-
-app.use(function(req, res, next) {
-    res.locals.mensajeRegistro = req.flash('mensajeRegistro');
-    next();
-});
 //login
 app.use('/auth', authRouter);
 
 //registro
-app.use('/register', registroRouter);
+app.post('/register', userController.postRegister);
 
 //Lista de usuarios
 app.use('/users', usersRouter);

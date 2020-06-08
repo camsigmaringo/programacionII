@@ -211,12 +211,8 @@ module.exports = {
 	
 		db.query('INSERT INTO usuarios SET ?', userRegister, (error, result) => {
 			if (error) throw error;
-	
-			// console.log(result)
-				// response.status(201).send(
-				//   request.flash('mensajeRegistro','Gracias por crear tu cuenta, ahora estas autentificado.')
-				// );
-			response.status(201).send(`User added with ID: ${result.insertId}`);
+			
+			response.render('login', {title: 'login', error: '', success: "Usuario registrado correctamente!"});
 		});
 	},
 

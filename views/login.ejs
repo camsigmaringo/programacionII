@@ -69,10 +69,15 @@
 		<div class="login-form">
             <h1>Login Form</h1>
             <% if (error) { %>
-              <div style="width: 36%; padding: 5px; background-color: #f8d7da; border-radius: 5px;">
+              <div style="padding: 5px; background-color: #f8d7da; border-radius: 5px;">
                   <p style="color: #721c24;"><%= error %></>
               </div>
-          <% } %>
+            <% } %>
+            <% if (success) { %>
+              <div style="padding: 5px; background-color: #d4edda; border-radius: 5px;">
+                  <p style="color: #155724;"><%= success %></>
+              </div>
+            <% } %>
 			<form action="auth" method="POST">
 				<input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" id="myInput" placeholder="Password" required><br>
