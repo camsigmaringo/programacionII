@@ -205,7 +205,7 @@ module.exports = {
 							let resenaOld = row[0];
 							
 							var resena = (req.body.resena == null) ? resenaOld.resena : req.body.resena;
-							var puntaje = (req.body.puntaje == null) ? resenaOld.puntaje : req.body.resena;
+							var puntaje = (req.body.puntaje == null) ? resenaOld.puntaje : req.body.puntaje;
 							
 							//inserto en la base la reseña
 							let sql = "UPDATE resenas SET idPelicula = '" + idPelicula + "', idUser = '" + idUser + "', resena = '" + resena + "', puntaje = '" + puntaje + "' WHERE id = " + resenaId;
